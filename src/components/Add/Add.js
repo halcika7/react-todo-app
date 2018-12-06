@@ -3,7 +3,7 @@ import classes from './Add.module.css';
 
 const add = (props) => (
     <div className={classes.Add}>
-        <input type="text" name="" id="" 
+        <input type="text"
             onKeyUp={props.click}
             placeholder="Add Course"/>
     </div>

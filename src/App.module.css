@@ -5,10 +5,19 @@
 }
 
 .App > h1{
-    text-align: center;
-    color: rgb(101, 147, 245);
+    margin:30px auto 30px auto;
+    color: rgb(29, 30, 31);
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.301);
-    font-size: 2.5rem;
+    font-size: 1.7rem;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.App > h1 img {
+    height: 50px;
 }
 
 .CheckAll {
@@ -31,7 +40,7 @@
 
 .CheckAll,.Buttons {
     display: flex;
-    width: 280px;
+    width: 100%;
     padding: 10px 0px;
 }
 
@@ -91,6 +100,12 @@ button.Button:active{
 @media (min-width:500px) {
     .CheckAll,.Buttons {
         width: 500px;
+    }
+
+    .App > h1{
+        font-size: 2.5rem;
+        width: 500px;
+        flex-flow: row;
     }
 }
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import classes from './App.module.css';
 import Courses from './components/Courses/Courses';
 import Add from './components/Add/Add';
+import logo from './logo.svg';
 
 class App extends Component {
     state = {
@@ -12,8 +13,7 @@ class App extends Component {
     }
 
     addCourse = (event) => {
-        event.preventDefault();
-        let coursses = [...this.state.courses];
+        const coursses = [...this.state.courses];
         const newCourse = event.target.value;
         if (event.key === "Enter" && event.target.value.length > 2) {
             coursses.push({
@@ -24,7 +24,10 @@ class App extends Component {
 
             this.setState({
                 courses: coursses
-            }, () => this.unfinishedCourses());
+            }, () => {
+                this.unfinishedCourses();
+                this.changeShow('all');
+            });
             event.target.value = '';
         }
     }
@@ -42,20 +45,18 @@ class App extends Component {
             }
         });
 
-        this.setState({
-            leftCourses: left
-        });
+        this.setState({leftCourses: left});
     }
 
     changeChecked = (index) => {
-        const course = this.state.courses[index];
         const courses = [...this.state.courses];
-        courses.map(item => {
-            if (item === course) {
-                return item.done = !item.done;
-            }
-            return item;
-        });
+        courses[index].done = !courses[index].done;
+        if (courses[index].done === false) {
+            return this.setState({
+                courses: courses,
+                checkedAll: false
+            }, () => this.unfinishedCourses());
+        }
 
         this.setState({
             courses: courses
@@ -63,46 +64,53 @@ class App extends Component {
     }
 
     checkAll = () => {
-        this.setState((prev, next) => {
-            return {
-                checkedAll: !prev.checkedAll,
-                leftCourses: 0
-            };
-        }, () => this.unfinishedCourses());
+        const courses = [...this.state.courses];
+        if (courses.length !== 0) {
+            courses.map(course => {
+                return course.done = true;
+            });
+
+            this.setState({
+                courses: courses,
+                checkedAll: true
+            }, () => this.unfinishedCourses());
+        }
     }
 
     clearCourses = () => {
-        this.setState((prev, next) => {
-            return {courses: [], show: 'all'}
+        this.setState({
+            courses: [],
+            show: 'all',
+            checkedAll: false
         }, () => this.unfinishedCourses());
     }
 
     changeShow = (show) => {
-        this.setState({
-            show: show
-        }, () => console.log(this.state));
+        this.setState({show: show});
     }
 
-    removeCourse = (index) => {
-        const course = index;
-        console.log(course);
+    removeCourse = (id) => {
+        const index = this
+            .state
+            .courses
+            .findIndex(course => course.id === id);
         const courses = [...this.state.courses];
-        courses.map((item, i) => {
-            if (item === course) {
-              console.log(item)
-                return courses.splice(i, 1);
-            }
-            return item;
-        })
+        courses.splice(index, 1);
         this.setState({
             courses: courses
-        }, () => this.unfinishedCourses());
+        }, () => {
+            this.unfinishedCourses();
+            if (this.state.courses.length === 0) {
+                this.setState({checkedAll: false});
+            }
+        });
     }
 
     render() {
         return (
             <div className={classes.App}>
-                <h1>React To-Do App</h1>
+                <h1>React To-Do App
+                    <img src={logo} alt="Logo"/></h1>
 
                 <Add click={(event) => this.addCourse(event)}/>
 
@@ -115,26 +123,33 @@ class App extends Component {
 
                 <div className={classes.CheckAll}>
                     <section>
-                        <input type="checkbox" name="" id="" onClick={this.checkAll}/>
-                        <label htmlFor="">Check All</label>
+                        <input
+                            type="checkbox"
+                            checked={this.state.checkedAll}
+                            onChange={this.checkAll}/>
+                        <label>Check All</label>
                     </section>
-                    <section>{this.state.leftCourses} items left</section>
+                    <section>{this.state.leftCourses}
+                        items left</section>
                 </div>
                 <div className={classes.Buttons}>
                     <section>
-                        <button 
-                        className={classes.Button+' '+classes.All} onClick={() => this.changeShow('all')}>All</button>
+                        <button
+                            className={classes.Button + ' ' + classes.All}
+                            onClick={() => this.changeShow('all')}>All</button>
 
                         <button
-                        className={classes.Button+' '+classes.Active}
-                        onClick={() => this.changeShow('active')}>Active</button>
+                            className={classes.Button + ' ' + classes.Active}
+                            onClick={() => this.changeShow('active')}>Active</button>
 
                         <button
-                        className={classes.Button+' '+classes.Completed}
-                        onClick={() => this.changeShow('completed')}>Completed</button>
+                            className={classes.Button + ' ' + classes.Completed}
+                            onClick={() => this.changeShow('completed')}>Completed</button>
                     </section>
                     <section>
-                        <button className={classes.Button+' '+classes.Clear} onClick={this.clearCourses}>Clear Completed</button>
+                        <button
+                            className={classes.Button + ' ' + classes.Clear}
+                            onClick={this.clearCourses}>Clear Completed</button>
                     </section>
                 </div>
             </div>

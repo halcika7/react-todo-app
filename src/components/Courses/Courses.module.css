@@ -9,6 +9,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 .Courses > ul > li:nth-child(odd) {
@@ -16,34 +17,33 @@
     margin: 5px 0;
 }
 
-.Article,.ArticlE {
+.Article{
     display: flex;
-    width: 280px;
     align-items: center;
     padding: 10px 0;
 }
 
-.Article > section,
-.ArticlE > section {
+.Article > section{
     color: black;
     font-size: 1.4rem;
     padding: 5px;
 }
-.Article > section:nth-child(3),
-.ArticlE > section:nth-child(3){
+.Article > section:nth-child(3){
     margin-left: auto;
     font-size: 1rem;
     font-weight: 900;
     cursor: pointer;
-    padding-right: 15px;
+    padding-right: 25px;
 }
 
 .UL {
     max-height: 500px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .LI,.Li {
+    width: 100%;
     opacity: 0;
     transform: translateY(-10px);
     animation: opc 0.4s forwards;
@@ -54,11 +54,11 @@
     -o-transform: translateY(-10px);
 }
 
-.ArticlE{
+.Sect{
     position: relative;
 }
 
-.ArticlE:before{
+.Sect:before{
     content: "";
     position: absolute;
     top: 50%;
@@ -103,6 +103,10 @@
 
 @media (min-width:500px) {
     .Article,.ArticlE {
+        width: 500px;
+    }
+
+    .Courses > ul{
         width: 500px;
     }
 }

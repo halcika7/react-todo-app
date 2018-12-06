@@ -9,16 +9,16 @@ class Courses extends Component {
     mountComponent = (course,check,index) => {
         return(
             <li className={classes.LI} key={course.id}>
-            <div className={check ? classes.ArticlE : classes.Article}>
+            <div className={classes.Article}>
                 <section>
                     <input
                         type="checkbox"
                         checked={check}
                         onChange={() => this.props.click(index)}/>
                 </section>
-                <section>{course.title}</section>
+                <section className={check ? classes.Sect : null}>{course.title}</section>
                 
-                <section onClick={() => this.props.remove(course)}>&#x2716;</section>
+                <section onClick={() => this.props.remove(course.id)}>&#x2716;</section>
             </div>
         </li>
         );
@@ -36,7 +36,7 @@ class Courses extends Component {
                 if(this.props.show === 'active' && (course.done === false && !this.props.checkedAll)){
                     return this.mountComponent(course,check,index);
                 }
-                else if(this.props.show === 'completed' && (course.done === true || this.props.checkedAll)){
+                else if((this.props.show === 'completed' && course.done === true)){
                     return this.mountComponent(course,check,index);
                 }
                 else if(this.props.show === 'all') {
