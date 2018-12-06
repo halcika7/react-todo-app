@@ -1,0 +1,19 @@
+.Add {
+    margin: auto;
+    width: 280px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.Add > input {
+    width: 100%;
+    font-size: 18px;
+}
+
+@media(min-width:500px) {
+    .Add{
+        width: 500px;
+    }
+}

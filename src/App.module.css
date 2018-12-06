@@ -1,0 +1,69 @@
+.App {
+    margin: auto;
+    background-color: #1111;
+    padding: 15px;
+    height: 96.6vh;
+}
+
+.App > h1{
+    text-align: center;
+    color: rgb(89, 117, 240);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.301);
+    font-size: 2.5rem;
+}
+
+.CheckAll {
+    border-top: 1px solid rgba(0, 0, 0, 0.376);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.376);
+    margin: 15px auto 0px auto;
+}
+
+.Buttons {
+    margin: auto;
+}
+
+.Buttons button{
+    margin: 0 5px;
+}
+
+.Buttons > section:nth-child(2) {
+    margin-left: auto;
+}
+
+.CheckAll,.Buttons {
+    display: flex;
+    width: 280px;
+    padding: 10px 0px;
+}
+
+.CheckAll > section {
+    padding: 0 5px;
+}
+
+.CheckAll > section:nth-child(2) {
+    margin-left: auto;
+}
+
+@media (min-width:500px) {
+    .CheckAll,.Buttons {
+        width: 500px;
+    }
+}
+
+@media (min-width:576px) {
+    .App {
+        max-width: 90%;
+    }
+}
+
+@media (min-width: 700px){
+    .App{
+        max-width: 85%;
+    }
+}
+
+@media (min-width: 1155px){
+    .App{
+        max-width: 75%;
+    }
+}

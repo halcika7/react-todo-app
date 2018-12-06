@@ -1,0 +1,100 @@
+.Courses {
+    color: blueviolet;
+    display: flex;
+    justify-content: center;
+}
+
+.Courses > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.Article,.ArticlE {
+    display: flex;
+    width: 280px;
+    align-items: center;
+}
+
+.Article > section,
+.ArticlE > section {
+    color: black;
+    font-size: 1.4rem;
+    padding: 5px;
+}
+.Article > section:nth-child(3),
+.ArticlE > section:nth-child(3){
+    margin-left: auto;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.UL {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.LI,.Li {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: opc 0.4s forwards;
+    -webkit-animation: opc 0.4s forwards;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+}
+
+.ArticlE{
+    position: relative;
+}
+
+.ArticlE:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 8px;
+    width: 0%;
+    background-color: rgba(0, 0, 0, 0.837);
+    z-index: -1;
+    transform: translate(0%,-50%);
+    -webkit-transform: translate(0%,-50%);
+    -moz-transform: translate(0%,-50%);
+    -ms-transform: translate(0%,-50%);
+    -o-transform: translate(0%,-50%);
+    animation: widthh .5s forwards;
+    -webkit-animation: widthh .5s forwards;
+}
+
+@keyframes opc {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        -o-transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+    }
+}
+
+@keyframes widthh {
+    to{
+        width: 100%;
+    }
+}
+
+@media (min-width:500px) {
+    .Article,.ArticlE {
+        width: 500px;
+    }
+}
