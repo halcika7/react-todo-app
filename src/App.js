@@ -88,9 +88,17 @@ class App extends Component {
         }
     }
 
-    clearCourses = () => {
+    clearCoursesCompleted = () => {
+        const courses = [...this.state.courses];
+        courses.map((course,index) => {
+            if(course.done){
+                courses.splice(index,1);
+                return null;
+            }
+            return course;
+        }) 
         this.setState({
-            courses: [],
+            courses: courses,
             show: 'all',
             checkedAll: false
         }, () => this.unfinishedCourses());
@@ -160,7 +168,7 @@ class App extends Component {
                     <section>
                         <button
                             className={classes.Button + ' ' + classes.Clear}
-                            onClick={this.clearCourses}>Clear Completed</button>
+                            onClick={this.clearCoursesCompleted}>Clear Completed</button>
                     </section>
                 </div>
             </div>
