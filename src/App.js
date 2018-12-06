@@ -66,14 +66,25 @@ class App extends Component {
     checkAll = () => {
         const courses = [...this.state.courses];
         if (courses.length !== 0) {
-            courses.map(course => {
-                return course.done = true;
-            });
+            if (this.state.checkedAll === false) {
+                courses.map(course => {
+                    return course.done = true;
+                });
 
-            this.setState({
-                courses: courses,
-                checkedAll: true
-            }, () => this.unfinishedCourses());
+                this.setState({
+                    courses: courses,
+                    checkedAll: true
+                }, () => this.unfinishedCourses());
+            }else{
+                courses.map(course => {
+                    return course.done = false;
+                });
+
+                this.setState({
+                    courses: courses,
+                    checkedAll: false
+                }, () => this.unfinishedCourses());
+            }
         }
     }
 
