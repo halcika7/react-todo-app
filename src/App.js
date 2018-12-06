@@ -16,8 +16,9 @@ class App extends Component {
         const coursses = [...this.state.courses];
         const newCourse = event.target.value;
         if (event.key === "Enter" && event.target.value.length > 2) {
+            const courseId = Math.random() * Date.now();
             coursses.push({
-                id: coursses.length + 1,
+                id: courseId,
                 title: newCourse,
                 done: false
             });
@@ -30,6 +31,7 @@ class App extends Component {
                 this.changeShow('all');
             });
             event.target.value = '';
+
         }
     }
 
