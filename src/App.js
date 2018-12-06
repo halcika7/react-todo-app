@@ -90,15 +90,16 @@ class App extends Component {
 
     clearCoursesCompleted = () => {
         const courses = [...this.state.courses];
-        courses.map((course,index) => {
-            if(course.done){
-                courses.splice(index,1);
-                return null;
+        let newCourses = [];
+        courses.map(course => {
+            if(course.done !== true){
+                return newCourses.push(course);
             }
-            return course;
-        }) 
+            return null;
+        });
+
         this.setState({
-            courses: courses,
+            courses: newCourses,
             show: 'all',
             checkedAll: false
         }, () => this.unfinishedCourses());
@@ -109,6 +110,7 @@ class App extends Component {
     }
 
     removeCourse = (id) => {
+        
         const index = this
             .state
             .courses
