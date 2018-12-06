@@ -23,7 +23,8 @@ class App extends Component {
             });
 
             this.setState({
-                courses: coursses
+                courses: coursses,
+                checkedAll:false
             }, () => {
                 this.unfinishedCourses();
                 this.changeShow('all');
