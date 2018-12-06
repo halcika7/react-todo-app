@@ -32,6 +32,8 @@ class App extends Component {
         }
     }
 
+    // sidojasidjosa
+
     unfinishedCourses = () => {
         let courses = [...this.state.courses];
         let left = 0;
