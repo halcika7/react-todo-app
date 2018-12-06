@@ -2,6 +2,7 @@
     color: blueviolet;
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
 }
 
 .Courses > ul {
@@ -10,10 +11,16 @@
     padding: 0;
 }
 
+.Courses > ul > li:nth-child(odd) {
+    background-color: rgba(172, 167, 167, 0.431);
+    margin: 5px 0;
+}
+
 .Article,.ArticlE {
     display: flex;
     width: 280px;
     align-items: center;
+    padding: 10px 0;
 }
 
 .Article > section,
@@ -28,6 +35,7 @@
     font-size: 1rem;
     font-weight: 900;
     cursor: pointer;
+    padding-right: 15px;
 }
 
 .UL {
@@ -54,7 +62,7 @@
     content: "";
     position: absolute;
     top: 50%;
-    height: 8px;
+    height: 3px;
     width: 0%;
     background-color: rgba(0, 0, 0, 0.837);
     z-index: -1;

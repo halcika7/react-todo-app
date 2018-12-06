@@ -1,13 +1,12 @@
 .App {
     margin: auto;
-    background-color: #1111;
     padding: 15px;
     height: 96.6vh;
 }
 
 .App > h1{
     text-align: center;
-    color: rgb(89, 117, 240);
+    color: rgb(101, 147, 245);
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.301);
     font-size: 2.5rem;
 }
@@ -38,10 +37,55 @@
 
 .CheckAll > section {
     padding: 0 5px;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .CheckAll > section:nth-child(2) {
     margin-left: auto;
+}
+
+.Button{
+    padding: 7px 15px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+}
+
+button.Button:active{
+    box-shadow: none;
+}
+
+.Button.All{
+    background-color: rgb(50,205,50);
+    box-shadow: 2px 2px 2px rgba(97, 92, 92, 0.781);
+}
+
+.Button.Active{
+    background-color: rgb(101, 147, 245);
+    box-shadow: 2px 2px 2px rgba(97, 92, 92, 0.781);
+}
+
+.Button.Completed{
+    background-color: rgb(255, 191, 0);
+    box-shadow: 2px 2px 2px rgba(97, 92, 92, 0.781);
+}
+
+.Button.Clear{
+    background-color: rgb(255, 36, 0);
+    box-shadow: 2px 2px 2px rgba(97, 92, 92, 0.781);
 }
 
 @media (min-width:500px) {

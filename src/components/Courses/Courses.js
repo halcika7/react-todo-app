@@ -17,6 +17,7 @@ class Courses extends Component {
                         onChange={() => this.props.click(index)}/>
                 </section>
                 <section>{course.title}</section>
+                
                 <section onClick={() => this.props.remove(course)}>&#x2716;</section>
             </div>
         </li>

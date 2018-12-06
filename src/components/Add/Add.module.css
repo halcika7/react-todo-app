@@ -1,15 +1,24 @@
 .Add {
-    margin: auto;
+    margin: 0px auto 35px auto;
     width: 280px;
     height: 30px;
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
 }
 
 .Add > input {
     width: 100%;
     font-size: 18px;
+    padding: 20px 10px;
+    border: none;
+    box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.486),
+                -1px 0px 2px rgba(0, 0, 0, 0.486);
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    outline: none;
 }
 
 @media(min-width:500px) {

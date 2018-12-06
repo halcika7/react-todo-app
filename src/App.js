@@ -118,19 +118,23 @@ class App extends Component {
                         <input type="checkbox" name="" id="" onClick={this.checkAll}/>
                         <label htmlFor="">Check All</label>
                     </section>
-                    <section>{this.state.leftCourses}
-                        items left</section>
+                    <section>{this.state.leftCourses} items left</section>
                 </div>
                 <div className={classes.Buttons}>
                     <section>
-                        <button onClick={() => this.changeShow('all')}>All</button>
+                        <button 
+                        className={classes.Button+' '+classes.All} onClick={() => this.changeShow('all')}>All</button>
 
-                        <button onClick={() => this.changeShow('active')}>Active</button>
+                        <button
+                        className={classes.Button+' '+classes.Active}
+                        onClick={() => this.changeShow('active')}>Active</button>
 
-                        <button onClick={() => this.changeShow('completed')}>Completed</button>
+                        <button
+                        className={classes.Button+' '+classes.Completed}
+                        onClick={() => this.changeShow('completed')}>Completed</button>
                     </section>
                     <section>
-                        <button onClick={this.clearCourses}>Clear Completed</button>
+                        <button className={classes.Button+' '+classes.Clear} onClick={this.clearCourses}>Clear Completed</button>
                     </section>
                 </div>
             </div>
